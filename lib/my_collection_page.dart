@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/movie_detail_page_pro.dart';
+import 'package:untitled1/Namuundari/movie_detail_page.dart';
 
 class MyCollectionPage extends StatelessWidget {
   const MyCollectionPage({super.key});

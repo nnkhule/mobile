@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'saki/login_page.dart';
+import 'saki/search_page.dart';
 import 'saki/home_page.dart';
+import 'saki/login_page.dart';
 
 void main() => runApp(const StatelessApp());
 
@@ -28,15 +29,15 @@ class StatelessApp extends StatelessWidget {
 }
 
 class AnimeItem {
-  String title;
-  double rating;
-  String year;
-  int episodes;
-  String category;
-  String description;
-  bool isLiked;
-  String imagePath;
-  Color color;
+  final String title;
+  final double rating;
+  final String year;
+  final int episodes;
+  final String category;
+  final String description;
+  final bool isLiked;
+  final String imagePath;
+  final Color color;
 
   AnimeItem({
     required this.title,

@@ -24,7 +24,7 @@ class ProfilePage extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           title: const Text(
             'Купон код оруулах',
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           ),
           content: TextField(
             controller: couponController,
@@ -43,7 +43,7 @@ class ProfilePage extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('Болих', style: TextStyle(color: Colors.white54)),
+              child: const Text('Болих', style: TextStyle(color: Colors.white70)),
             ),
             ElevatedButton(
               onPressed: () {
@@ -60,7 +60,7 @@ class ProfilePage extends StatelessWidget {
                 backgroundColor: Colors.redAccent,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
               ),
-              child: const Text('Идэвхжүүлэх'),
+              child: const Text('Идэвхжүүлэх', style: TextStyle(color: Colors.white)),
             ),
           ],
         );
@@ -71,74 +71,69 @@ class ProfilePage extends StatelessWidget {
   void _showErrorPopup(BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) {
-        return AlertDialog(
-          backgroundColor: const Color(0xFF222730),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-          title: const Center(
-            child: Icon(Icons.error, color: Colors.redAccent, size: 60),
-          ),
-          content: const Text(
-            'Таны оруулсан купон код буруу эсвэл хүчинтэй бус байна.',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white70, fontSize: 15, height: 1.5),
-          ),
-          actions: [
-            Center(
-              child: ElevatedButton(
-                onPressed: () => Navigator.pop(context),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.redAccent,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                ),
-                child: const Text('Дахин оролдох'),
+      builder: (context) => AlertDialog(
+        backgroundColor: const Color(0xFF222730),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        title: const Center(
+          child: Icon(Icons.error, color: Colors.redAccent, size: 60),
+        ),
+        content: const Text(
+          'Таны оруулсан купон код буруу эсвэл хүчинтэй бус байна.',
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.white70, fontSize: 15, height: 1.5),
+        ),
+        actions: [
+          Center(
+            child: ElevatedButton(
+              onPressed: () => Navigator.pop(context),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.redAccent,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
               ),
+              child: const Text('Дахин оролдох', style: TextStyle(color: Colors.white)),
             ),
-          ],
-        );
-      },
+          ),
+        ],
+      ),
     );
   }
 
   void _showSuccessPopup(BuildContext context, String code, String reward) {
     showDialog(
       context: context,
-      builder: (context) {
-        return AlertDialog(
-          backgroundColor: const Color(0xFF222730),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-          title: const Center(
-            child: Icon(Icons.check_circle, color: Colors.greenAccent, size: 60),
-          ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(height: 10),
-              const Text(
-                'Таны купон амжилттай идэвхжлээ!',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
-              ),
-              const SizedBox(height: 8),
-              Text('Код: $code', style: const TextStyle(color: Colors.white54, fontSize: 13)),
-              const SizedBox(height: 8),
-              Text(reward, textAlign: TextAlign.center, style: const TextStyle(color: Colors.white70, fontSize: 14)),
-            ],
-          ),
-          actions: [
-            Center(
-              child: ElevatedButton(
-                onPressed: () => Navigator.pop(context),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.redAccent,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                ),
-                child: const Text('Хаах'),
-              ),
-            )
+      builder: (context) => AlertDialog(
+        backgroundColor: const Color(0xFF222730),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        title: const Center(
+          child: Icon(Icons.check_circle, color: Colors.greenAccent, size: 60),
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              'Таны купон амжилттай идэвхжлээ!',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            Text('Код: $code', style: const TextStyle(color: Colors.white70)),
+            const SizedBox(height: 8),
+            Text(reward, textAlign: TextAlign.center, style: const TextStyle(color: Colors.white)),
           ],
-        );
-      },
+        ),
+        actions: [
+          Center(
+            child: ElevatedButton(
+              onPressed: () => Navigator.pop(context),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.redAccent,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+              child: const Text('Хаах'),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -150,20 +145,25 @@ class ProfilePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
+            /// TOP ROW
             Row(
               children: [
                 IconButton(
-                  icon: const Icon(Icons.arrow_back_ios, size: 18, color: Colors.white70),
+                  icon: const Icon(Icons.arrow_back_ios, size: 18, color: Colors.white),
                   onPressed: () => Navigator.pop(context),
                 ),
                 const Spacer(),
-                const Text("ТАНЫ ID: ", style: TextStyle(color: Colors.white70, fontSize: 14)),
-                const Text("753305", style: TextStyle(color: Colors.redAccent, fontSize: 14)),
+                const Text("ТАНЫ ID: ",
+                    style: TextStyle(color: Colors.white, fontSize: 14)),
+                const Text("753305",
+                    style: TextStyle(color: Colors.redAccent, fontSize: 14)),
               ],
             ),
 
             const SizedBox(height: 20),
 
+            /// PROFILE CARD
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
@@ -182,15 +182,22 @@ class ProfilePage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("UNDRAA",
-                            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white54, fontSize: 16)),
-                        Text("753305", style: TextStyle(color: Colors.white54, fontSize: 13)),
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16)),
+                        Text("753305",
+                            style: TextStyle(color: Colors.white70, fontSize: 13)),
                       ],
                     ),
                   ),
                   IconButton(
-                    icon: const Icon(Icons.arrow_forward_ios, size: 18, color: Colors.white70),
-                    onPressed: () =>
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => const PersonalInfoPage())),
+                    icon: const Icon(Icons.arrow_forward_ios,
+                        size: 18, color: Colors.white),
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const PersonalInfoPage()),
+                    ),
                   ),
                 ],
               ),
@@ -198,6 +205,7 @@ class ProfilePage extends StatelessWidget {
 
             const SizedBox(height: 16),
 
+            /// STATS
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -210,16 +218,16 @@ class ProfilePage extends StatelessWidget {
                   Column(
                     children: [
                       Text("28",
-                          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white54)),
-                      Text("аниме хоног", style: TextStyle(color: Colors.white54)),
+                          style: TextStyle(color: Colors.white, fontSize: 22)),
+                      Text("аниме хоног", style: TextStyle(color: Colors.white70)),
                     ],
                   ),
                   SizedBox(height: 30, child: VerticalDivider(color: Colors.white24)),
                   Column(
                     children: [
                       Text("14",
-                          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white54)),
-                      Text("кино хоног", style: TextStyle(color: Colors.white54)),
+                          style: TextStyle(color: Colors.white, fontSize: 22)),
+                      Text("кино хоног", style: TextStyle(color: Colors.white70)),
                     ],
                   ),
                 ],
@@ -227,22 +235,29 @@ class ProfilePage extends StatelessWidget {
             ),
 
             const SizedBox(height: 20),
-            const Text("Энэ сард төхөөрөмж шилжүүлэх 4 эрх байна",
-                style: TextStyle(color: Colors.white38, fontSize: 12)),
+
+            const Text(
+              "Энэ сард төхөөрөмж шилжүүлэх 4 эрх байна",
+              style: TextStyle(color: Colors.white54, fontSize: 12),
+            ),
+
             const SizedBox(height: 20),
 
+            /// MENU ITEMS
             _MenuItem(
               title: "Эрх сунгах",
               icon: Icons.credit_card,
-              onTap: () =>
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => const ExtendPage())),
+              onTap: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => const ExtendPage())),
             ),
+
             _MenuItem(
               title: "Миний сан",
               icon: Icons.favorite_border,
-              onTap: () =>
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => const MyCollectionPage())),
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => const MyCollectionPage())),
             ),
+
             _MenuItem(
               title: "Купон эрх",
               icon: Icons.card_giftcard,
@@ -257,11 +272,13 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   Icon(Icons.logout, color: Colors.redAccent),
                   SizedBox(width: 8),
-                  Text("ГАРАХ", style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold)),
+                  Text("ГАРАХ",
+                      style: TextStyle(
+                          color: Colors.redAccent,
+                          fontWeight: FontWeight.bold)),
                 ],
               ),
             ),
-
             const SizedBox(height: 20),
           ],
         ),
@@ -286,15 +303,16 @@ class _MenuItem extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12.0),
+        padding: const EdgeInsets.symmetric(vertical: 12),
         child: Row(
-          children: const [
-            Icon(Icons.credit_card, color: Colors.white70),
-            SizedBox(width: 10),
-            Text("",
-                style: TextStyle(fontSize: 15, color: Colors.white70)),
-            Spacer(),
-            Icon(Icons.arrow_forward_ios, size: 14, color: Colors.white38),
+          children: [
+            Icon(icon, color: Colors.white),
+            const SizedBox(width: 10),
+            Text(title,
+                style: const TextStyle(color: Colors.white, fontSize: 15)),
+            const Spacer(),
+            const Icon(Icons.arrow_forward_ios,
+                size: 14, color: Colors.white54),
           ],
         ),
       ),

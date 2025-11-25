@@ -15,12 +15,14 @@ import 'MysteryScreen.dart';
 import 'ZergeldeeWorldScreen.dart';
 import 'IneedemScreen.dart';
 import 'UranZognoltScreen.dart';
-
+import 'package:untitled1/saki/calendar_page.dart';
+import 'package:untitled1/saki/search_page.dart';
 // Detail + Profile
 import 'movie_detail_page.dart';
 import '../profile_page.dart';
-import '../saki/home_page.dart';
-
+import '../saki/home_page.dart';import 'package:untitled1/QR.dart';
+import 'package:untitled1/Medegdel.dart';
+import 'package:untitled1/Random.dart';
 // -----------------------
 // ENTRY POINT
 // -----------------------
@@ -97,13 +99,93 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    _buildTopIcon(1, Icons.search),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() => selectedTopIcon = 1);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SearchPage(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: selectedTopIcon == 1
+                              ? Colors.white.withValues(alpha: 0.2)
+                              : Colors.transparent,
+                        ),
+                        child: Icon(
+                          Icons.search,
+                          color: selectedTopIcon == 1 ? Colors.white : Colors.grey[600],
+                          size: 24,
+                        ),
+                      ),
+                    ),
                     const SizedBox(width: 12),
-                    _buildTopIcon(2, Icons.calendar_month),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() => selectedTopIcon = 2);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CalendarPage(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: selectedTopIcon == 2
+                              ? Colors.white.withValues(alpha: 0.2)
+                              : Colors.transparent,
+                        ),
+                        child: Icon(
+                          Icons.calendar_month,
+                          color: selectedTopIcon == 2 ? Colors.white : Colors.grey[600],
+                          size: 24,
+                        ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const NotificationScreen(),
+                          ),
+                        );
+                      },
+                      child: const Icon(
+                        Icons.notifications_outlined,
+                        color: Colors.grey,
+                        size: 26,
+                      ),
+                    ),
+
                     const SizedBox(width: 12),
-                    _buildTopIcon(3, Icons.notifications_outlined),
-                    const SizedBox(width: 12),
-                    _buildTopIcon(4, Icons.qr_code_scanner),
+                    //  FIXED QR ICON (NO HIGHLIGHT, ONLY NAVIGATION)
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const QrLensScreen(),
+                          ),
+                        );
+                      },
+                      child: const Icon(
+                        Icons.qr_code_scanner,
+                        color: Colors.grey, // stays grey!
+                        size: 26,
+                      ),
+                    ),
+
                     const SizedBox(width: 12),
 
                     // PROFILE BUTTON
@@ -213,7 +295,7 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
               children: [
                 _buildBottomNavItem(0, Icons.home_outlined, "НҮҮР"),
                 _buildBottomNavItem(1, Icons.play_circle_outline, "АНИМЕ"),
-                _buildBottomNavItem(2, Icons.casino_outlined, "RANDOM"),
+                _buildBottomNavItem(2, Icons.thunderstorm_outlined, "RANDOM"),
                 _buildBottomNavItem(3, Icons.movie_outlined, "КИНО"),
                 _buildBottomNavItem(4, Icons.theater_comedy_outlined, "ТЕАТР"),
               ],
@@ -355,6 +437,12 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
         if (label == "АНИМЕ") {
           Navigator.of(context, rootNavigator: true).pushReplacement(
             MaterialPageRoute(builder: (_) => const MainScreen()),
+          );
+        }
+
+        if (label == "RAN DOM") {
+          Navigator.of(context, rootNavigator: true).pushReplacement(
+            MaterialPageRoute(builder: (_) => const AnimeReelsPage()),
           );
         }
 
