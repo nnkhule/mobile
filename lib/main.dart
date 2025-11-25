@@ -132,7 +132,6 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                 children: [
                   const SizedBox(height: 16),
 
-                  // Category chips (TODO: Replace categories based on your movie categories)
                   SizedBox(
                     height: 40,
                     child: ListView(
