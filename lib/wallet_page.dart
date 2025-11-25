@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import '/success_page.dart';
-=======
 import 'success_page.dart';
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
 
 class WalletPage extends StatelessWidget {
   const WalletPage({super.key});

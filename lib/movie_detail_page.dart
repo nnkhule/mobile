@@ -15,6 +15,7 @@ class MovieDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF171B22),
+
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -55,9 +56,7 @@ class MovieDetailPage extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
 
-                // ----------------------
                 // ҮЗЭХ button
-                // ----------------------
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -65,7 +64,7 @@ class MovieDetailPage extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (_) => MoviePlayerScreen(
                           title: "$title - 1-р анги",
-                          episodes: [
+                          episodes: const [
                             "1-р анги",
                             "2-р анги",
                             "3-р анги",
@@ -80,9 +79,6 @@ class MovieDetailPage extends StatelessWidget {
                         ),
                       ),
                     );
-                ElevatedButton(
-                  onPressed: () {
-                    // “ҮЗЭХ” товчны дараах үйлдэл
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.redAccent,
@@ -93,7 +89,6 @@ class MovieDetailPage extends StatelessWidget {
                       horizontal: 12,
                       vertical: 8,
                     ),
-                        horizontal: 12, vertical: 8),
                   ),
                   child: const Text(
                     "ҮЗЭХ",
@@ -104,21 +99,8 @@ class MovieDetailPage extends StatelessWidget {
             ),
           ),
         ],
-
-
-        title: Text(
-          title,
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        centerTitle: true,
       ),
 
-      // ----------------------------------------
-      // БИЕИЙН ХЭСЭГ
-      // ----------------------------------------
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -130,6 +112,7 @@ class MovieDetailPage extends StatelessWidget {
               height: 300,
             ),
 
+            // Дэлгэрэнгүй хэсэг
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               padding: const EdgeInsets.all(16),
@@ -150,11 +133,6 @@ class MovieDetailPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
 
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 6),
                   Row(
                     children: const [
                       Icon(Icons.star, color: Colors.yellowAccent, size: 18),
@@ -164,20 +142,18 @@ class MovieDetailPage extends StatelessWidget {
                       Icon(Icons.calendar_today,
                           color: Colors.white54, size: 16),
                       SizedBox(width: 4),
-                      Text("2021",
-                          style: TextStyle(color: Colors.white54)),
-                    ],
-                  ),
-
                       Text("2021", style: TextStyle(color: Colors.white54)),
                     ],
                   ),
+
                   const SizedBox(height: 10),
+
                   Row(
                     children: const [
                       _TagChip("Адал явдалт"),
                       SizedBox(width: 8),
                       _TagChip("Тулаант"),
+                      SizedBox(width: 8),
                       _TagChip("Тулалт"),
                     ],
                   ),
@@ -199,10 +175,9 @@ class MovieDetailPage extends StatelessWidget {
               ),
             ),
 
-                style: TextStyle(color: Colors.white70, fontSize: 14, height: 1.5),
-              ),
-            ),
             const SizedBox(height: 20),
+
+            // Трейлер хэсэг
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
@@ -217,6 +192,7 @@ class MovieDetailPage extends StatelessWidget {
             ),
 
             const SizedBox(height: 10),
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: ClipRRect(
@@ -281,29 +257,19 @@ class HeartPainter extends CustomPainter {
 
     final path = Path();
 
-<<<<<<< HEAD
-=======
-    // Зүрхний хэлбэрийг тодорхойлж байна
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
     double width = size.width;
     double height = size.height;
 
     path.moveTo(width / 2, height * 0.8);
 
-<<<<<<< HEAD
-=======
     // Баруун талын муруй
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
     path.cubicTo(
       width * 1.2, height * 0.45,
       width * 0.8, height * 0.05,
       width / 2, height * 0.3,
     );
 
-<<<<<<< HEAD
-=======
     // Зүүн талын муруй
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
     path.cubicTo(
       width * 0.2, height * 0.05,
       -width * 0.2, height * 0.45,
@@ -317,8 +283,3 @@ class HeartPainter extends CustomPainter {
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567

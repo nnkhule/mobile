@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import '/movie_detail_page_pro.dart';
-=======
-import 'movie_detail_page.dart';
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
 
 class MyCollectionPage extends StatelessWidget {
   const MyCollectionPage({super.key});

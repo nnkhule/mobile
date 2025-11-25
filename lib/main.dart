@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../Film.dart'; // кинонуудын мэдээллийг эндээс unshina
+import '../../Film.dart';
+
+// Category screens
 import 'AdalYvdalScreen.dart';
 import 'AimshgiinScreen.dart';
 import 'BiAijiinaScreen.dart';
@@ -10,22 +12,23 @@ import 'GerBulScreen.dart';
 import '../../MagicScreen.dart';
 import '../../MusicalScreen.dart';
 import '../../MysteryScreen.dart';
-import '.././ZergeldeeWorldScreen.dart';
+import '../ZergeldeeWorldScreen.dart';
 import 'IneedemScreen.dart';
 import '../../UranZognoltScreen.dart';
+
+// Detail + Profile
 import '../../movie_detail_page.dart';
 import 'profile_page.dart';
+import '/home_page.dart';
 
-void main() => runApp(const MovieApp());
+// -----------------------
+// ENTRY POINT
+// -----------------------
+void main() => runApp(const MyApp());
 
-class MovieApp extends StatelessWidget {
-  const MovieApp({super.key});
-import 'profile_page.dart';
-
-void main() {
-  runApp(const MyApp());
-}
-
+// -----------------------
+// MAIN APP
+// -----------------------
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -44,6 +47,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// -----------------------
+// HOME SCREEN
+// -----------------------
 class MovieMainScreen extends StatefulWidget {
   const MovieMainScreen({super.key});
 
@@ -67,13 +73,12 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          // Header
+          // ---------------- HEADER ----------------
           Container(
             height: 90,
             decoration: BoxDecoration(
@@ -100,12 +105,18 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                     const SizedBox(width: 12),
                     _buildTopIcon(4, Icons.qr_code_scanner),
                     const SizedBox(width: 12),
+
+                    // PROFILE BUTTON
                     GestureDetector(
-                      onTap: () { setState(() => selectedTopIcon = 5);
+                      onTap: () {
+                        setState(() => selectedTopIcon = 5);
                         Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => const ProfilePage()),
-                        );},
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => const ProfilePage(),
+                          ),
+                        );
+                      },
                       child: Container(
                         width: 45,
                         height: 45,
@@ -119,11 +130,8 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                           ),
                           color: const Color(0xFFFFC107),
                         ),
-                        child: const Icon(
-                          Icons.person,
-                          color: Colors.black,
-                          size: 24,
-                        ),
+                        child: const Icon(Icons.person,
+                            color: Colors.black, size: 24),
                       ),
                     ),
                   ],
@@ -132,7 +140,7 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
             ),
           ),
 
-          // Main content
+          // ---------------- MAIN CONTENT ----------------
           Expanded(
             child: SingleChildScrollView(
               child: Column(
@@ -140,242 +148,74 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                 children: [
                   const SizedBox(height: 16),
 
+                  // CATEGORY CHIPS
                   SizedBox(
                     height: 40,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       children: [
-                        _buildCategoryChip('Бүх кино', true),
-                        _buildCategoryChip(
-                          'Адал явдалт',
-                          false,
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const AdalYvdalScreen()),
-                            );
-                          },
-                        ),
-                        _buildCategoryChip(
-                            'Аймшгийн',
-                            false,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const AimshgiinScreen()),
-                              );
+                        _buildCategoryChip("Бүх кино", true),
 
-                            }),
-                        _buildCategoryChip(
-                            'Би айжийна',
-                            false,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const BiAijiinascreen())
-                              );
-                            }),
-                        _buildCategoryChip(
-                            'Багачуудад',
-                            false,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const AnimationScreen())
-                              );
-                            }),
-                        _buildCategoryChip(
-                            'Гэмт хэрэг',
-                            false,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const Gemtheregscreen())
-                              );
-                            }
-                        ),
-                        _buildCategoryChip(
-                            'Гэр бүл',
-                            false,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const GerBulscreen())
-                              );
-                            }
-                        ),
-                        _buildCategoryChip(
-                            'Драма',
-                            false,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const Dramascreen())
-                              );
-                            }
-                        ),
-                        _buildCategoryChip(
-                            'Зэргэлдээ ертөнц',
-                            false,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const ZergeldeeWorldscreen())
-                              );
-                            }
-                        ),
-                        _buildCategoryChip(
-                            'Ид шид',
-                            false,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const MagicScreen())
-                              );
-                            }
-                        ),
-                        _buildCategoryChip(
-                            'Инээдэм',
-                            false,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const IneedemScreen())
-                              );
-                            }
-                        ),
-                        _buildCategoryChip(
-                            'Мюзикл',
-                            false,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const MusicalScreen())
-                              );
-                            }
-                        ),
-                        _buildCategoryChip(
-                            'Нууцлаг',
-                            false,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => MysteryScreen())
-                              );
-                            }
-                        ),
-                        _buildCategoryChip(
-                            'Уран зөгнөлт',
-                            false,
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => Uranzognoltscreen())
-                              );
-                            }
-                        )
+                        _chipNav("Адал явдалт", const AdalYvdalScreen()),
+                        _chipNav("Аймшгийн", const AimshgiinScreen()),
+                        _chipNav("Би айжийна", const BiAijiinascreen()),
+                        _chipNav("Багачуудад", const AnimationScreen()),
+                        _chipNav("Гэмт хэрэг", const Gemtheregscreen()),
+                        _chipNav("Гэр бүл", const GerBulscreen()),
+                        _chipNav("Драма", const Dramascreen()),
+                        _chipNav("Зэргэлдээ ертөнц",
+                            const ZergeldeeWorldscreen()),
+                        _chipNav("Ид шид", const MagicScreen()),
+                        _chipNav("Инээдэм", const IneedemScreen()),
+                        _chipNav("Мюзикл", const MusicalScreen()),
+                        _chipNav("Нууцлаг", MysteryScreen()),
+                        _chipNav("Уран зөгнөлт", const Uranzognoltscreen()),
                       ],
                     ),
                   ),
 
                   const SizedBox(height: 24),
 
-                  // Section 1
-                  _buildSectionHeader('Үргэлжлүүлэх'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Үргэлжлүүлэх').toList()),
-
-                  const SizedBox(height: 24),
-
-                  // Section 2
-                  _buildSectionHeader('ШИНЭ ГАРАЛТУУД'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Шинэ гаргалтууд').toList()),
-
-                  const SizedBox(height: 24),
-
-                  // Section 3
-                  _buildSectionHeader('АДАЛ ЯВДАЛТ'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Адал явдалт').toList()),
-
-                  // Section 4
-                  _buildSectionHeader('ИНЭЭДЭМ'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Адал явдалт').toList()),
-
-                  // Section 5
-                  _buildSectionHeader('МЮЗИКЛ'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Мюзикл').toList()),
-
-                  // Section 6
-                  _buildSectionHeader('ДУРСАМЖ СЭРГЭМ'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Дурсамж сэргэм').toList()),
-                  // Section 7
-                  _buildSectionHeader('ХАЙР ДУРЛАЛ'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Хайр дурлал').toList()),
-                  // Section 8
-                  _buildSectionHeader('БАГАЧУУДАД'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Багачуудад').toList()),
-                  // Section 9
-                  _buildSectionHeader('ГЭР БҮЛ'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Гэр бүл').toList()),
-                  // Section 10
-                  _buildSectionHeader('ДРАМА'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Драма').toList()),
-                  // Section 11
-                  _buildSectionHeader('БИ АЙЖИЙНА'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Би айжийна').toList()),
-                  //Section 12
-                  _buildSectionHeader('Уран зөгнөлт'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Уран зөгнөлт').toList()),
-                  //Section 13
-                  _buildSectionHeader('АЙМШГИЙН'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Аймшгийн').toList()),
-                  //Section 14
-                  _buildSectionHeader('ГЭМТ ХЭРЭГ'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Гэмт хэрэг').toList()),
-                  //Section 15
-                  _buildSectionHeader('НУУЦЛАГ'),
-                  const SizedBox(height: 12),
-                  _buildMovieRow(movieList.where((m) => m.category == 'Нууцлаг').toList()),
-
+                  // ---------------- SECTIONS ----------------
+                  _section("Үргэлжлүүлэх", "Үргэлжлүүлэх"),
+                  _section("ШИНЭ ГАРАЛТУУД", "Шинэ гаргалтууд"),
+                  _section("АДАЛ ЯВДАЛТ", "Адал явдалт"),
+                  _section("ИНЭЭДЭМ", "Инээдэм"),
+                  _section("МЮЗИКЛ", "Мюзикл"),
+                  _section("ДУРСАМЖ СЭРГЭМ", "Дурсамж сэргэм"),
+                  _section("ХАЙР ДУРЛАЛ", "Хайр дурлал"),
+                  _section("БАГАЧУУДАД", "Багачуудад"),
+                  _section("ГЭР БҮЛ", "Гэр бүл"),
+                  _section("ДРАМА", "Драма"),
+                  _section("БИ АЙЖИЙНА", "Би айжийна"),
+                  _section("Уран зөгнөлт", "Уран зөгнөлт"),
+                  _section("АЙМШГИЙН", "Аймшгийн"),
+                  _section("ГЭМТ ХЭРЭГ", "Гэмт хэрэг"),
+                  _section("НУУЦЛАГ", "Нууцлаг"),
                 ],
               ),
             ),
           ),
 
-          // Footer
+          // ---------------- FOOTER ----------------
           Container(
             height: 75,
             decoration: BoxDecoration(
               color: const Color(0xFF0d1117),
               border: Border(
                 top: BorderSide(
-                  color: Colors.white.withOpacity(0.1),
-                  width: 1,
-                ),
+                    color: Colors.white.withOpacity(0.1), width: 1),
               ),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildBottomNavItem(0, Icons.home_outlined, 'НҮҮР'),
-                _buildBottomNavItem(1, Icons.play_circle_outline, 'АНИМЕ'),
-                _buildBottomNavItem(2, Icons.casino_outlined, 'RANDOM'),
-                _buildBottomNavItem(3, Icons.movie_outlined, 'КИНО'),
-                _buildBottomNavItem(4, Icons.theater_comedy_outlined, 'ТЕАТР'),
+                _buildBottomNavItem(0, Icons.home_outlined, "НҮҮР"),
+                _buildBottomNavItem(1, Icons.play_circle_outline, "АНИМЕ"),
+                _buildBottomNavItem(2, Icons.casino_outlined, "RANDOM"),
+                _buildBottomNavItem(3, Icons.movie_outlined, "КИНО"),
+                _buildBottomNavItem(4, Icons.theater_comedy_outlined, "ТЕАТР"),
               ],
             ),
           ),
@@ -384,6 +224,33 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
     );
   }
 
+  // 🔹 SECTION BUILDER
+  Widget _section(String title, String cat) {
+    return Column(
+      children: [
+        _buildSectionHeader(title),
+        const SizedBox(height: 12),
+        _buildMovieRow(movieList.where((m) => m.category == cat).toList()),
+        const SizedBox(height: 24),
+      ],
+    );
+  }
+
+  // 🔹 SECTION HEADER
+  Widget _buildSectionHeader(String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Text(
+        title,
+        style: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.white),
+      ),
+    );
+  }
+
+  // 🔹 MOVIE ROW
   Widget _buildMovieRow(List<MovieItem> items) {
     return SizedBox(
       height: 220,
@@ -392,14 +259,14 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         itemCount: items.length,
         itemBuilder: (context, index) {
-          int realIndex = movieList.indexOf(items[index]);
-          return _buildMovieCard(items[index], realIndex);
+          return _buildMovieCard(items[index]);
         },
       ),
     );
   }
 
-  Widget _buildMovieCard(MovieItem movie, int index) {
+  // 🔹 MOVIE CARD
+  Widget _buildMovieCard(MovieItem movie) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -412,53 +279,35 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
           ),
         );
       },
-
       child: Container(
         width: 120,
         margin: const EdgeInsets.only(right: 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image
+            // IMAGE
             Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                    color: Colors.white.withOpacity(0.1),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: movie.imagePath.isNotEmpty
+                    ? Image.asset(
+                  movie.imagePath,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                )
+                    : Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[800],
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: movie.imagePath.isNotEmpty
-                      ? Image.asset(
-                    movie.imagePath,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                  )
-                      : Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          movie.color.withOpacity(0.6),
-                          movie.color.withOpacity(0.3),
-                        ],
-                      ),
-                    ),
-                    child: const Center(
-                      child: Icon(
-                        Icons.movie,
-                        size: 40,
-                        color: Colors.white70,
-                      ),
-                    ),
-                  ),
+                  child: const Icon(Icons.movie,
+                      size: 40, color: Colors.white70),
                 ),
               ),
             ),
             const SizedBox(height: 8),
 
-            // Title
+            // TITLE
             Text(
               movie.title,
               maxLines: 2,
@@ -467,7 +316,6 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
                 color: Colors.white,
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
-                height: 1.2,
               ),
             ),
           ],
@@ -476,6 +324,7 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
     );
   }
 
+  // 🔹 TOP ICON
   Widget _buildTopIcon(int index, IconData icon) {
     bool isSelected = selectedTopIcon == index;
     return GestureDetector(
@@ -485,44 +334,60 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
         height: 40,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: isSelected ? Colors.white.withOpacity(0.2) : Colors.transparent,
+          color: isSelected
+              ? Colors.white.withOpacity(0.2)
+              : Colors.transparent,
         ),
-        child: Icon(
-          icon,
-          color: isSelected ? Colors.white : Colors.grey[600],
-          size: 24,
-        ),
+        child: Icon(icon,
+            color: isSelected ? Colors.white : Colors.grey[600], size: 24),
       ),
     );
   }
 
+  // 🔹 BOTTOM NAV
   Widget _buildBottomNavItem(int index, IconData icon, String label) {
     bool isSelected = selectedBottomTab == index;
     return GestureDetector(
-      onTap: () => setState(() => selectedBottomTab = index),
+      onTap: () {
+        setState(() => selectedBottomTab = index);
+
+        // Аниме товч → Anime MainScreen рүү буцах
+        if (label == "АНИМЕ") {
+          Navigator.of(context, rootNavigator: true).pushReplacement(
+            MaterialPageRoute(builder: (_) => const MainScreen()),
+          );
+        }
+
+        // Кино товч → MovieMainScreen рүү шилжих
+        if (label == "КИНО") {
+          Navigator.of(context, rootNavigator: true).pushReplacement(
+            MaterialPageRoute(builder: (_) => const MovieMainScreen()),
+          );
+        }
+      },
+
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            icon,
-            color: isSelected ? Colors.red : Colors.grey[600],
-            size: 28,
-          ),
+          Icon(icon,
+              size: 28,
+              color: isSelected ? Colors.red : Colors.grey[600]),
           const SizedBox(height: 4),
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 10,
-              color: isSelected ? Colors.red : Colors.grey[600],
-              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-            ),
-          ),
+          Text(label,
+              style: TextStyle(
+                fontSize: 10,
+                color: isSelected ? Colors.red : Colors.grey[600],
+                fontWeight:
+                isSelected ? FontWeight.bold : FontWeight.normal,
+              )),
         ],
       ),
     );
   }
 
-  Widget _buildCategoryChip(String label, bool isSelected, {VoidCallback? onTap}) {
+  // 🔹 CATEGORY CHIP
+  Widget _buildCategoryChip(String label, bool isSelected,
+      {VoidCallback? onTap}) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -532,66 +397,27 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
           color: isSelected ? Colors.red : const Color(0xFF1a2744),
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: isSelected ? Colors.red : Colors.white.withOpacity(0.2),
-          ),
+              color: isSelected ? Colors.red : Colors.white.withOpacity(0.2)),
         ),
-        child: Text(
-          label,
-          style: TextStyle(
-            color: isSelected ? Colors.white : Colors.grey[400],
-            fontSize: 13,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
+        child: Text(label,
+            style: TextStyle(
+              color: isSelected ? Colors.white : Colors.grey[400],
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+            )),
       ),
     );
   }
 
-  Widget _buildSectionHeader(String title) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              letterSpacing: 0.5,
-            ),
-          ),
-          const Spacer(),
-          TextButton(
-            onPressed: () {},
-            child: Row(
-              children: [
-                Text(
-                  'Цааш',
-                  style: TextStyle(
-                    color: Colors.orange[700],
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(width: 4),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  size: 12,
-                  color: Colors.orange[700],
-                ),
-            ],
-            ),
-          ),
-        ],
+  // 🔹 QUICK CHIP JUMP
+  Widget _chipNav(String label, Widget screen) {
+    return _buildCategoryChip(
+      label,
+      false,
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => screen),
       ),
-      title: 'Profile Navigation UI',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: const Color(0xFF171B22),
-      ),
-      home: const ProfilePage(),
     );
   }
 }
