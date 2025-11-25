@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../movie_player_screen.dart';
+import 'movie_player_screen.dart';
 
 class MovieDetailPage extends StatelessWidget {
   final String title;

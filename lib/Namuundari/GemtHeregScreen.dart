@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../Film.dart';
+import 'Film.dart';
 
-class GerBulscreen extends StatefulWidget {
-  const GerBulscreen({super.key});
+class Gemtheregscreen extends StatefulWidget {
+  const Gemtheregscreen({super.key});
 
   @override
-  State<GerBulscreen> createState() => _GerBulscreenState();
+  State<Gemtheregscreen> createState() => _GemtheregscreenState();
 }
 
-class _GerBulscreenState extends State<GerBulscreen> {
-  String selectedGenre = "Гэр бүл";
+class _GemtheregscreenState extends State<Gemtheregscreen> {
+  String selectedGenre = "Гэмт хэрэг";
   String selectedSeason = "Бүгд";
   String selectedStatus = "Бүгд";
   String selectedSort = "Шинэ";
@@ -58,7 +58,7 @@ class _GerBulscreenState extends State<GerBulscreen> {
 
   @override
   Widget build(BuildContext context) {
-    final filteredList = movieList.where((m) => m.category == "Гэр бүл").toList();
+    final filteredList = movieList.where((m) => m.category == "Гэмт хэрэг").toList();
 
     return Scaffold(
       backgroundColor: const Color(0xFF0d1117),

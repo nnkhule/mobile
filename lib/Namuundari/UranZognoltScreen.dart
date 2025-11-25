@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../Film.dart';
+import 'Film.dart';
 
 class Uranzognoltscreen extends StatefulWidget {
   const Uranzognoltscreen({super.key});

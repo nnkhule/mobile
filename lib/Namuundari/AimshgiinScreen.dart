@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../Film.dart';
+import 'Film.dart';
 
-class BiAijiinascreen extends StatefulWidget {
-  const BiAijiinascreen({super.key});
+class AimshgiinScreen extends StatefulWidget {
+  const AimshgiinScreen({super.key});
 
   @override
-  State<BiAijiinascreen> createState() => _BiAijiinascreenState();
+  State<AimshgiinScreen> createState() => _AimshgiinScreenState(); // ✔ ЗӨВ
 }
 
-class _BiAijiinascreenState extends State<BiAijiinascreen> {
-  String selectedGenre = "Би айжийна";
+class _AimshgiinScreenState extends State<AimshgiinScreen> {
+  String selectedGenre = "Аймшгийн";
   String selectedSeason = "Бүгд";
   String selectedStatus = "Бүгд";
   String selectedSort = "Шинэ";
@@ -58,7 +58,7 @@ class _BiAijiinascreenState extends State<BiAijiinascreen> {
 
   @override
   Widget build(BuildContext context) {
-    final filteredList = movieList.where((m) => m.category == "Би айжийна").toList();
+    final filteredList = movieList.where((m) => m.category == "Аймшгийн").toList();
 
     return Scaffold(
       backgroundColor: const Color(0xFF0d1117),

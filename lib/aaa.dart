@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'login_page.dart';
-import '/home_page.dart';
+import 'saki/login_page.dart';
+import 'saki/home_page.dart';
 
 void main() => runApp(const StatelessApp());
 

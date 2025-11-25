@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'aaa.dart';
-import '/anime_data.dart';
-import '/anime_card.dart';
-import 'package:untitled1/movie_detail_page.dart';
+import '../aaa.dart';
+import 'anime_data.dart';
+import 'anime_card.dart';
+import 'package:untitled1/Namuundari/movie_detail_page.dart';
 
 class BrowseAnimePage extends StatefulWidget {
   final String category;

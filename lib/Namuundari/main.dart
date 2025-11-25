@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import '../../Film.dart';
+import 'Film.dart';
 
 // Category screens
 import 'AdalYvdalScreen.dart';
 import 'AimshgiinScreen.dart';
 import 'BiAijiinaScreen.dart';
 import 'AnimationScreen.dart';
-import '../../DramaScreen.dart';
+import 'DramaScreen.dart';
 import 'GemtHeregScreen.dart';
 import 'GerBulScreen.dart';
-import '../../MagicScreen.dart';
-import '../../MusicalScreen.dart';
-import '../../MysteryScreen.dart';
-import '../ZergeldeeWorldScreen.dart';
+import 'MagicScreen.dart';
+import 'MusicalScreen.dart';
+import 'MysteryScreen.dart';
+import 'ZergeldeeWorldScreen.dart';
 import 'IneedemScreen.dart';
-import '../../UranZognoltScreen.dart';
+import 'UranZognoltScreen.dart';
 
 // Detail + Profile
-import '../../movie_detail_page.dart';
-import 'profile_page.dart';
-import '/home_page.dart';
+import 'movie_detail_page.dart';
+import '../profile_page.dart';
+import '../saki/home_page.dart';
 
 // -----------------------
 // ENTRY POINT

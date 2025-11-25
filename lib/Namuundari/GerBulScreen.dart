@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../Film.dart';
+import 'Film.dart';
 
-class AnimationScreen extends StatefulWidget {
-  const AnimationScreen({super.key});
+class GerBulscreen extends StatefulWidget {
+  const GerBulscreen({super.key});
 
   @override
-  State<AnimationScreen> createState() => _AnimationScreenState();
+  State<GerBulscreen> createState() => _GerBulscreenState();
 }
 
-class _AnimationScreenState extends State<AnimationScreen> {
-  String selectedGenre = "Анимэйшн";
+class _GerBulscreenState extends State<GerBulscreen> {
+  String selectedGenre = "Гэр бүл";
   String selectedSeason = "Бүгд";
   String selectedStatus = "Бүгд";
   String selectedSort = "Шинэ";
@@ -58,7 +58,7 @@ class _AnimationScreenState extends State<AnimationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final filteredList = movieList.where((m) => m.category == "Анимэйшн").toList();
+    final filteredList = movieList.where((m) => m.category == "Гэр бүл").toList();
 
     return Scaffold(
       backgroundColor: const Color(0xFF0d1117),

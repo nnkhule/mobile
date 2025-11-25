@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../Film.dart';
+import 'Film.dart';
 
-class ZergeldeeWorldscreen extends StatefulWidget {
-  const ZergeldeeWorldscreen({super.key});
+class AnimationScreen extends StatefulWidget {
+  const AnimationScreen({super.key});
 
   @override
-  State<ZergeldeeWorldscreen> createState() => _ZergeldeeWorldscreenState();
+  State<AnimationScreen> createState() => _AnimationScreenState();
 }
 
-class _ZergeldeeWorldscreenState extends State<ZergeldeeWorldscreen> {
-  String selectedGenre = "Зэргэлдээ ертөнц";
+class _AnimationScreenState extends State<AnimationScreen> {
+  String selectedGenre = "Анимэйшн";
   String selectedSeason = "Бүгд";
   String selectedStatus = "Бүгд";
   String selectedSort = "Шинэ";
@@ -58,7 +58,7 @@ class _ZergeldeeWorldscreenState extends State<ZergeldeeWorldscreen> {
 
   @override
   Widget build(BuildContext context) {
-    final filteredList = movieList.where((m) => m.category == "Зэргэлдээ ертөнц").toList();
+    final filteredList = movieList.where((m) => m.category == "Анимэйшн").toList();
 
     return Scaffold(
       backgroundColor: const Color(0xFF0d1117),

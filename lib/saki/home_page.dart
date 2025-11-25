@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'anime_data.dart';
-import '../browse_anime_page.dart';
+import 'browse_anime_page.dart';
 import 'package:untitled1/profile_page.dart';
-import '../aaa.dart';
-import 'package:untitled1/main.dart';
+import '../../aaa.dart';
+import 'package:untitled1/Namuundari/main.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

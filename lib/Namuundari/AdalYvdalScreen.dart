@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../Film.dart';
+import 'Film.dart';
 
-class Gemtheregscreen extends StatefulWidget {
-  const Gemtheregscreen({super.key});
+class AdalYvdalScreen extends StatefulWidget {
+  const AdalYvdalScreen({super.key});
 
   @override
-  State<Gemtheregscreen> createState() => _GemtheregscreenState();
+  State<AdalYvdalScreen> createState() => _AdalYvdalScreenState();
 }
 
-class _GemtheregscreenState extends State<Gemtheregscreen> {
-  String selectedGenre = "Гэмт хэрэг";
+class _AdalYvdalScreenState extends State<AdalYvdalScreen> {
+  String selectedGenre = "Адал явдал";
   String selectedSeason = "Бүгд";
   String selectedStatus = "Бүгд";
   String selectedSort = "Шинэ";
@@ -40,7 +40,8 @@ class _GemtheregscreenState extends State<Gemtheregscreen> {
                 child: ListView(
                   children: items.map((e) {
                     return ListTile(
-                      title: Text(e, style: const TextStyle(color: Colors.white)),
+                      title: Text(e,
+                          style: const TextStyle(color: Colors.white)),
                       onTap: () {
                         onSelect(e);
                         Navigator.pop(context);
@@ -58,7 +59,8 @@ class _GemtheregscreenState extends State<Gemtheregscreen> {
 
   @override
   Widget build(BuildContext context) {
-    final filteredList = movieList.where((m) => m.category == "Гэмт хэрэг").toList();
+    final filteredList =
+    movieList.where((m) => m.category == "Адал явдалт").toList();
 
     return Scaffold(
       backgroundColor: const Color(0xFF0d1117),
@@ -101,15 +103,14 @@ class _GemtheregscreenState extends State<Gemtheregscreen> {
                 ], (value) {
                   setState(() => selectedGenre = value);
                 }),
-                buildFilter("Улирал", selectedSeason, [
-                  "Бүгд", "2025 НАМАР", "2025 ЗУН", "2025 ХАВАР",
-                  "2025 ӨВӨЛ", "2024 НАМАР", "2024 ЗУН", "2024 ХАВАР", "2024 ӨВӨЛ",
-                  "2023 НАМАР", "2023 ЗУН", "2023 ХАВАР", "2023 ӨВӨЛ",
-                  "2022 НАМАР", "2022 ЗУН", "2022 ХАВАР", "2022 ӨВӨЛ",
-                  "2021 НАМАР", "2021 ЗУН", "2021 ХАВАР", "2021 ӨВӨЛ",
-                ], (value) {
-                  setState(() => selectedSeason = value);
-                }),
+                buildFilter("Улирал", selectedSeason, ["Бүгд", "2025 НАМАР", "2025 ЗУН", "2025 ХАВАР",
+                  "2025 ӨВӨЛ", "2024 НАМАР", "2024 ЗУН", "2024 ХАВАР", "2024 ӨВӨЛ", "2023 НАМАР", "2023 ЗУН", "2023 ХАВАР",
+                "2023 ӨВӨЛ", "2022 НАМАР", "2022 ЗУН", "2022 ХАВАР", "2022 ӨВӨЛ", "2021 НАМАР", "2021 ЗУН", "2021 ХАВАР", "2021 ӨВӨЛ"
+                "2025 ӨВӨЛ",
+                ],
+                        (value) {
+                      setState(() => selectedSeason = value);
+                    }),
                 buildFilter("Төлөв", selectedStatus, ["Гарч байгаа", "Дууссан"],
                         (value) {
                       setState(() => selectedStatus = value);
@@ -152,7 +153,8 @@ class _GemtheregscreenState extends State<Gemtheregscreen> {
                         movie.title,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(color: Colors.white, fontSize: 12),
+                        style:
+                        const TextStyle(color: Colors.white, fontSize: 12),
                       ),
                       Text(
                         "⭐ ${movie.rating}/10",
