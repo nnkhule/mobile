@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import '../../movie_player_screen.dart';
-=======
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
 
 class MovieDetailPage extends StatelessWidget {
   final String title;
@@ -25,7 +22,6 @@ class MovieDetailPage extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.pop(context),
         ),
-<<<<<<< HEAD
         title: Text(
           title,
           style: const TextStyle(
@@ -34,9 +30,7 @@ class MovieDetailPage extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-=======
 
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
@@ -60,7 +54,6 @@ class MovieDetailPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 10),
-<<<<<<< HEAD
 
                 // ----------------------
                 // ҮЗЭХ button
@@ -87,11 +80,9 @@ class MovieDetailPage extends StatelessWidget {
                         ),
                       ),
                     );
-=======
                 ElevatedButton(
                   onPressed: () {
                     // “ҮЗЭХ” товчны дараах үйлдэл
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.redAccent,
@@ -99,13 +90,10 @@ class MovieDetailPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     padding: const EdgeInsets.symmetric(
-<<<<<<< HEAD
                       horizontal: 12,
                       vertical: 8,
                     ),
-=======
                         horizontal: 12, vertical: 8),
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
                   ),
                   child: const Text(
                     "ҮЗЭХ",
@@ -116,8 +104,7 @@ class MovieDetailPage extends StatelessWidget {
             ),
           ),
         ],
-<<<<<<< HEAD
-=======
+
 
         title: Text(
           title,
@@ -127,7 +114,6 @@ class MovieDetailPage extends StatelessWidget {
           ),
         ),
         centerTitle: true,
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
       ),
 
       // ----------------------------------------
@@ -143,10 +129,7 @@ class MovieDetailPage extends StatelessWidget {
               width: double.infinity,
               height: 300,
             ),
-<<<<<<< HEAD
 
-=======
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               padding: const EdgeInsets.all(16),
@@ -160,7 +143,6 @@ class MovieDetailPage extends StatelessWidget {
                   Text(
                     title,
                     style: const TextStyle(
-<<<<<<< HEAD
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -168,13 +150,11 @@ class MovieDetailPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
 
-=======
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 6),
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
                   Row(
                     children: const [
                       Icon(Icons.star, color: Colors.yellowAccent, size: 18),
@@ -184,43 +164,33 @@ class MovieDetailPage extends StatelessWidget {
                       Icon(Icons.calendar_today,
                           color: Colors.white54, size: 16),
                       SizedBox(width: 4),
-<<<<<<< HEAD
                       Text("2021",
                           style: TextStyle(color: Colors.white54)),
                     ],
                   ),
 
-=======
                       Text("2021", style: TextStyle(color: Colors.white54)),
                     ],
                   ),
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
                   const SizedBox(height: 10),
                   Row(
                     children: const [
                       _TagChip("Адал явдалт"),
                       SizedBox(width: 8),
-<<<<<<< HEAD
                       _TagChip("Тулаант"),
-=======
                       _TagChip("Тулалт"),
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
                     ],
                   ),
                 ],
               ),
             ),
-<<<<<<< HEAD
 
-=======
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Text(
                 "Ayanami Rei нь Японы алдарт Neon Genesis Evangelion анимэд гардаг гол дүрүүдийн нэг юм. "
                     "Тэрээр NERV байгууллагийн 'EVA Unit-00' хэмээх аварга биет роботыг жолоодон Angel-уудтай тулалдаж "
                     "эхний туршилтын нисгэгч буюу 'First Child' юм.",
-<<<<<<< HEAD
                 style: TextStyle(
                   color: Colors.white70,
                   fontSize: 14,
@@ -229,11 +199,9 @@ class MovieDetailPage extends StatelessWidget {
               ),
             ),
 
-=======
                 style: TextStyle(color: Colors.white70, fontSize: 14, height: 1.5),
               ),
             ),
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
             const SizedBox(height: 20),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
@@ -247,10 +215,7 @@ class MovieDetailPage extends StatelessWidget {
                 ),
               ),
             ),
-<<<<<<< HEAD
 
-=======
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -276,10 +241,7 @@ class MovieDetailPage extends StatelessWidget {
                 ),
               ),
             ),
-<<<<<<< HEAD
 
-=======
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
             const SizedBox(height: 30),
           ],
         ),
@@ -288,13 +250,7 @@ class MovieDetailPage extends StatelessWidget {
   }
 }
 
-// ---------------------------
-<<<<<<< HEAD
-// TAG CHIP
-=======
-// TAG CHIP COMPONENT
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
-// ---------------------------
+
 class _TagChip extends StatelessWidget {
   final String label;
   const _TagChip(this.label);
@@ -315,13 +271,7 @@ class _TagChip extends StatelessWidget {
   }
 }
 
-// ---------------------------
-<<<<<<< HEAD
-// ❤️ HEART PAINTER
-=======
-// ❤️ HEART PAINTER (зурагдсан зүрх)
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
-// ---------------------------
+
 class HeartPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {

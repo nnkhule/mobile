@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import '../../Film.dart'; // кинонуудын мэдээллийг эндээс unshina
 import 'AdalYvdalScreen.dart';
 import 'AimshgiinScreen.dart';
@@ -21,7 +20,6 @@ void main() => runApp(const MovieApp());
 
 class MovieApp extends StatelessWidget {
   const MovieApp({super.key});
-=======
 import 'profile_page.dart';
 
 void main() {
@@ -30,12 +28,10 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-<<<<<<< HEAD
       title: 'Playmax Movies',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -589,7 +585,6 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
           ),
         ],
       ),
-=======
       title: 'Profile Navigation UI',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -597,7 +592,6 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
         scaffoldBackgroundColor: const Color(0xFF171B22),
       ),
       home: const ProfilePage(),
->>>>>>> 3a8b897be94c171bff67380dd0948476bd225567
     );
   }
 }
