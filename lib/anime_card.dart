@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../aaa.dart';
-import 'movie_detail_page_pro.dart';
 
 class AnimeCardWidget extends StatelessWidget {
   final AnimeItem animeItem;
@@ -15,18 +14,7 @@ class AnimeCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => MovieDetailPage(
-              title: animeItem.title,
-              image: animeItem.imagePath,
-            ),
-          ),
-        );
-      },
-
+      onTap: onTap,
       child: Container(
         width: 128,
         height: 190,

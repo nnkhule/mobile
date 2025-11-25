@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'aaa.dart';
 import '/anime_data.dart';
 import '/anime_card.dart';
+import 'package:untitled1/movie_detail_page.dart';
 
 class BrowseAnimePage extends StatefulWidget {
   final String category;
@@ -157,8 +158,15 @@ class _BrowseAnimePageState extends State<BrowseAnimePage> {
                       child: AnimeCardWidget(
                         animeItem: filteredAnime[index],
                         onTap: () {
-                          // Анимэ дэлгэрэнгүй рүү шилжих
-                          print('Clicked: ${filteredAnime[index].title}');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => MovieDetailPage(
+                                title: filteredAnime[index].title,
+                                image: filteredAnime[index].imagePath,
+                              ),
+                            ),
+                          );
                         },
                       ),
                     ),
