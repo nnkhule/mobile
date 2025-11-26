@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/aaa.dart';
+import 'package:untitled1/main.dart';
 import 'anime_data.dart';
 import 'package:untitled1/Namuundari/movie_player_screen.dart';
 

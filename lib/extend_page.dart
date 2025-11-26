@@ -16,9 +16,23 @@ class ExtendPage extends StatelessWidget {
       backgroundColor: const Color(0xFF171B22),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: const Text("ЭРХ СУНГАХ"),
+        elevation: 0,
         centerTitle: true,
+
+        // 👇 BACK ICON-ИЙН ӨНГИЙГ ЗААВАЛ ТОГТООЖ ӨГНӨ
+        iconTheme: const IconThemeData(
+          color: Colors.white, // ← ИНГЭСНЭЭР dark mode эсвэл main color-аас үл хамаарна
+        ),
+
+        title: const Text(
+          "ЭРХ СУНГАХ",
+          style: TextStyle(
+            color: Colors.white, // ← Гарчгийн өнгийг тогтоов
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
+
       body: ListView.builder(
         padding: const EdgeInsets.all(16),
         itemCount: packages.length,
@@ -46,7 +60,7 @@ class ExtendPage extends StatelessWidget {
               trailing: const Icon(
                 Icons.arrow_forward_ios,
                 size: 18,
-                color: Colors.white54,
+                color: Colors.white,
               ),
               onTap: () {
                 Navigator.push(

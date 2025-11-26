@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../aaa.dart';
+import '../main.dart';
 final List<AnimeItem> animeList = [
   AnimeItem(
     title: 'Bleach',

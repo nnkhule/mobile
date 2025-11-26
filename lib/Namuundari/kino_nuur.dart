@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Film.dart';
-
+import 'package:untitled1/main_home_page.dart';
 // Category screens
 import 'AdalYvdalScreen.dart';
 import 'AimshgiinScreen.dart';
@@ -15,13 +15,14 @@ import 'MysteryScreen.dart';
 import 'ZergeldeeWorldScreen.dart';
 import 'IneedemScreen.dart';
 import 'UranZognoltScreen.dart';
-import 'package:untitled1/saki/calendar_page.dart';
-import 'package:untitled1/saki/search_page.dart';
+import 'package:untitled1/Dorjsambuu/calendar_page.dart';
+import 'package:untitled1/Dorjsambuu/search_page.dart';
 // Detail + Profile
 import 'movie_detail_page.dart';
 import '../profile_page.dart';
-import '../saki/home_page.dart';import 'package:untitled1/QR.dart';
-import 'package:untitled1/Medegdel.dart';
+import '../Dorjsambuu/home_page.dart';
+import 'package:untitled1/Namuundari/QR.dart';
+import 'package:untitled1/Namuundari/Medegdel.dart';
 import 'package:untitled1/Random.dart';
 // -----------------------
 // ENTRY POINT
@@ -295,7 +296,7 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
               children: [
                 _buildBottomNavItem(0, Icons.home_outlined, "НҮҮР"),
                 _buildBottomNavItem(1, Icons.play_circle_outline, "АНИМЕ"),
-                _buildBottomNavItem(2, Icons.thunderstorm_outlined, "RANDOM"),
+                _buildBottomNavItem(2, Icons.casino_outlined, "RANDOM"),
                 _buildBottomNavItem(3, Icons.movie_outlined, "КИНО"),
                 _buildBottomNavItem(4, Icons.theater_comedy_outlined, "ТЕАТР"),
               ],
@@ -434,13 +435,20 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
         setState(() => selectedBottomTab = index);
 
         // Аниме товч → Anime MainScreen рүү буцах
+
+        if (label == "НҮҮР") {
+          Navigator.of(context, rootNavigator: true).pushReplacement(
+            MaterialPageRoute(builder: (_) => const MainHomePage()),
+          );
+        }
+
         if (label == "АНИМЕ") {
           Navigator.of(context, rootNavigator: true).pushReplacement(
             MaterialPageRoute(builder: (_) => const MainScreen()),
           );
         }
 
-        if (label == "RAN DOM") {
+        if (label == "RANDOM") {
           Navigator.of(context, rootNavigator: true).pushReplacement(
             MaterialPageRoute(builder: (_) => const AnimeReelsPage()),
           );
@@ -449,7 +457,13 @@ class _MovieMainScreenState extends State<MovieMainScreen> {
         // Кино товч → MovieMainScreen рүү шилжих
         if (label == "КИНО") {
           Navigator.of(context, rootNavigator: true).pushReplacement(
-            MaterialPageRoute(builder: (_) => const MovieMainScreen()),
+            MaterialPageRoute(builder: (_) => const MyApp()),
+          );
+        }
+
+        if (label == "ТЕАТР") {
+          Navigator.of(context, rootNavigator: true).pushReplacement(
+            MaterialPageRoute(builder: (_) => const MyApp()),
           );
         }
       },

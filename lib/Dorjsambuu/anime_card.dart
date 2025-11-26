@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/aaa.dart';
+import 'package:untitled1/main.dart';
 
 class AnimeCardWidget extends StatelessWidget {
   final AnimeItem animeItem;

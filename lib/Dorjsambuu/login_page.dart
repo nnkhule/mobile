@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled1/main.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
   @override
@@ -138,7 +139,12 @@ class _FormLoginPageState extends State<FormLoginPage> {
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (_) => const StatelessApp()),
+            );
+          },
         ),
         title: Text(
           'Бүртгэл',

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'anime_data.dart';
-import 'anime_detail.dart';
-import 'package:untitled1/aaa.dart';
+import 'package:untitled1/Dorjsambuu/anime_detail.dart';
+import 'package:untitled1/main.dart';
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
 

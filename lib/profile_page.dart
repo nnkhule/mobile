@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled1/my_collection_page.dart';
 import 'personal_info_page.dart';
 import 'extend_page.dart';
+import 'package:untitled1/Dorjsambuu/login_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -267,18 +268,28 @@ class ProfilePage extends StatelessWidget {
             const Spacer(),
 
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (_) => const FormLoginPage()),
+                      (route) => false, // бүх хуучин stack-ийг устгана
+                );
+              },
               child: const Row(
                 children: [
                   Icon(Icons.logout, color: Colors.redAccent),
                   SizedBox(width: 8),
-                  Text("ГАРАХ",
-                      style: TextStyle(
-                          color: Colors.redAccent,
-                          fontWeight: FontWeight.bold)),
+                  Text(
+                    "ГАРАХ",
+                    style: TextStyle(
+                      color: Colors.redAccent,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ],
               ),
             ),
+
             const SizedBox(height: 20),
           ],
         ),

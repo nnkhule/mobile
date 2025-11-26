@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/Namuundari/main.dart';
-import 'package:untitled1/aaa.dart';
+import 'package:untitled1/Namuundari/kino_nuur.dart';
+import 'package:untitled1/main.dart';
 import 'anime_data.dart';
 import 'browse_anime_page.dart';
 import 'calendar_page.dart';
 import 'anime_detail.dart';
 import 'search_page.dart';
-import 'package:untitled1/QR.dart';
-import 'package:untitled1/Medegdel.dart';
+import 'package:untitled1/Namuundari/QR.dart';
+import 'package:untitled1/Namuundari/Medegdel.dart';
 import 'package:untitled1/profile_page.dart';
 import 'package:untitled1/Random.dart';
+import 'package:untitled1/main_home_page.dart';
 
 
 class MainScreen extends StatefulWidget {
@@ -280,7 +281,7 @@ class _MainScreenState extends State<MainScreen> {
                 children: [
                   _buildBottomNavItem(0, Icons.home_outlined, "НҮҮР"),
                   _buildBottomNavItem(1, Icons.play_circle_outline, "АНИМЕ"),
-                  _buildBottomNavItem(2, Icons.play_circle_outline, "RANDOM"),
+                  _buildBottomNavItem(2, Icons.casino_outlined, "RANDOM"),
                   _buildBottomNavItem(3, Icons.movie_outlined, "КИНО"),
                   _buildBottomNavItem(4, Icons.theater_comedy_outlined, "ТЕАТР"),
                 ],
@@ -337,7 +338,7 @@ class _MainScreenState extends State<MainScreen> {
 
         if (label == "НҮҮР") {
           Navigator.of(context, rootNavigator: true).pushReplacement(
-            MaterialPageRoute(builder: (_) => const MyApp()),
+            MaterialPageRoute(builder: (_) => const MainHomePage()),
           );
         }
 

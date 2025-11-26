@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
+import 'kino_nuur.dart';
 class MovieItem {
   String title;
   double rating;
@@ -200,7 +200,7 @@ final List<MovieItem> movieList = [
     category: 'Шинэ гаргалтууд',
     description: 'Love.',
     isLiked: false,
-    imagePath: 'assets/love_911.jpg',
+    imagePath: 'assets/love911.jpg',
     color: Colors.purple,
   ),
   MovieItem(
@@ -498,7 +498,7 @@ final List<MovieItem> movieList = [
     category: 'Инээдэм',
     description: 'Эрчүүдээ гэж...',
     isLiked: false,
-    imagePath: 'assets/ascape.jpg',
+    imagePath: 'assets/escape.jpg',
     color: Colors.orange,
   ),
   MovieItem(
@@ -565,7 +565,7 @@ final List<MovieItem> movieList = [
     category: 'Инээдэм',
     description: 'Эрчүүдээ гэж...',
     isLiked: false,
-    imagePath: 'assets/ascape.jpg',
+    imagePath: 'assets/escape.jpg',
     color: Colors.orange,
   ),
   MovieItem(
@@ -632,7 +632,7 @@ final List<MovieItem> movieList = [
     category: 'Инээдэм',
     description: 'Эрчүүдээ гэж...',
     isLiked: false,
-    imagePath: 'assets/ascape.jpg',
+    imagePath: 'assets/escape.jpg',
     color: Colors.orange,
   ),
   MovieItem(
@@ -870,7 +870,7 @@ final List<MovieItem> movieList = [
     category: 'Хайр дурлал',
     description: 'Хайр.',
     isLiked: false,
-    imagePath: 'assets/love_911.jpg',
+    imagePath: 'assets/love911.jpg',
     color: Colors.green,
   ),
   MovieItem(
@@ -937,7 +937,7 @@ final List<MovieItem> movieList = [
     category: 'Хайр дурлал',
     description: 'Хайр.',
     isLiked: false,
-    imagePath: 'assets/love_911.jpg',
+    imagePath: 'assets/love911.jpg',
     color: Colors.green,
   ),
   MovieItem(
@@ -1004,7 +1004,7 @@ final List<MovieItem> movieList = [
     category: 'Хайр дурлал',
     description: 'Хайр.',
     isLiked: false,
-    imagePath: 'assets/love_911.jpg',
+    imagePath: 'assets/love911.jpg',
     color: Colors.green,
   ),
   MovieItem(

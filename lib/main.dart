@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'saki/search_page.dart';
-import 'saki/home_page.dart';
-import 'saki/login_page.dart';
-
+import 'Dorjsambuu/search_page.dart';
+import 'Dorjsambuu/home_page.dart';
+import 'Dorjsambuu/login_page.dart';
+import 'main_home_page.dart';
 void main() => runApp(const StatelessApp());
 
 class StatelessApp extends StatelessWidget {
@@ -22,7 +22,7 @@ class StatelessApp extends StatelessWidget {
       routes: {
         '/': (context) => const LoginPage(),
         '/form': (context) => const FormLoginPage(),
-        '/main': (context) => const MainScreen(),
+        '/main': (context) => const MainHomePage(),
       },
     );
   }
